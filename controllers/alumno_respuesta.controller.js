@@ -3,15 +3,15 @@ const md5 = require("md5");
 
 const put_alumno_respuesta_actividad = async (req, res) => {
   const {
-    id_per, id_user,id_reim,id_actividad,id_elemento, datetime_touch,Eje_X, Eje_Y, correcta, resultado,Tipo_Registro
+    id_per, id_user,id_reim,id_actividad,id_elemento, datetime_touch,Eje_X, Eje_Y, Eje_Z ,correcta, resultado,Tipo_Registro
   } = req.body;
 
   await pool.query(
-    `insert into alumno_respuesta_actividad (id_per, id_user, id_reim, id_actividad, id_elemento, datetime_touch, Eje_X, Eje_Y, correcta, resultado, Tipo_Registro)
+    `insert into alumno_respuesta_actividad (id_per, id_user, id_reim, id_actividad, id_elemento, datetime_touch, Eje_X, Eje_Y, Eje_Z , correcta, resultado, Tipo_Registro)
          values (?, ?, ?, ?, ?,
-                 ?, ?, ?, ?, ?,?)`,
+                 ?, ?, ?, ?, ?,?,?)`,
     [
-      id_per, id_user,id_reim,id_actividad,id_elemento, datetime_touch,Eje_X, Eje_Y, correcta,resultado,Tipo_Registro
+      id_per, id_user,id_reim,id_actividad,id_elemento, datetime_touch,Eje_X, Eje_Y,Eje_Z, correcta,resultado,Tipo_Registro
     ],
     function (error, results, fields) {
       if (error) throw error;
